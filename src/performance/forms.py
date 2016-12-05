@@ -15,8 +15,9 @@ class SubjectModelForm(forms.ModelForm):
 		model = Subject
 		fields = [
 				'student',
-				'first_subject',
-				'second_subject',
-				'third_subject',
+				'subject_name',
+				'full_mark',
+				'pass_mark',
+				'mark_obtained',
 				]
 

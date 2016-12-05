@@ -6,9 +6,9 @@ class SubjectSerializer(serializers.HyperlinkedModelSerializer):
 		model = Subject
 		fields = [
 			'student',
-			'first_subject',
-			'second_subject',
-			'third_subject',
+			#'first_subject',
+			#'second_subject',
+			#'third_subject',
 				]
 
 class SubjectViewSet(viewsets.ModelViewSet):

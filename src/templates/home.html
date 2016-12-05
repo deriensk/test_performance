@@ -1,7 +1,9 @@
 {% for query in queryset %}
 	<h1>{{ query.student }}</h1>
-	{% if query.first_subject %}{{ query.first_subject }}{% endif %}<br/>
-	{% if query.second_subject %}{{ query.second_subject }}{% endif %}<br/>
-	{% if query.third_subject %}{{ query.third_subject }}{% endif %}<br/>
+	Subject: {% if query.subject_name %}{{ query.subject_name }}{% endif %}<br/>
+	Full mark: {% if query.full_mark %}{{ query.full_mark }}{% endif %}<br/>
+	Pass mark: {% if query.pass_mark %}{{ query.pass_mark }}{% endif %}<br/>
+	Mark obtained: {% if query.mark_obtained %}{{ query.mark_obtained }}{% endif %}<br/>
 	<hr>
 {% endfor %}
+
