@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
+
+from performance.serializers import SubjectViewSet
+
+router = routers.DefaultRouter()
+router.register(r'performance', SubjectViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^students/', include('performance.urls')),
+    url(r'^api/', include(router.urls)),
 ]

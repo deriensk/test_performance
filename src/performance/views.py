@@ -33,7 +33,6 @@ def student_subject(request, id=None):
 def student_list(request):
 	queryset = Subject.objects.all().order_by('-id')
 	context = {
-		'title':'List on its way',
-		'queryset':queryset
+		'queryset':queryset,
 	}
 	return render(request, 'home.html', context)
