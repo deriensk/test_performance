@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from django.core.urlresolvers import reverse
+
 
 
 #created_date = models.DateTimeField(default=timezone.now)
@@ -14,6 +16,9 @@ class Student(models.Model):
 	def __str__(self):
 		return str(self.name)
 
+	def get_absolute_url(self):
+		return reverse("subject", kwargs={"id": self.id})	
+
 	
 
 class Subject(models.Model):
@@ -24,12 +29,9 @@ class Subject(models.Model):
 	
 
 	def __str__(self):
-		return str(self.first_subject + self.second_subject + self.third_subject)
+		return str(self.first_subject)
 
 
-# class Attendance(models.Model):
-# 	ad_sheet = models.ForeignKey(Student, on_delete=models.CASCADE, default=1)
-
-# 	def __str__(self):
-# 		return str(self.ad_sheet)
+class Attendance(models.Model):
+	pass
 		

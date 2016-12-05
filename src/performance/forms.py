@@ -1,5 +1,5 @@
 from django import forms
-from .models import Student
+from .models import Student, Subject
 
 class StudentModelForm(forms.ModelForm):
 	class Meta:
@@ -9,3 +9,14 @@ class StudentModelForm(forms.ModelForm):
 				'grade',
 				'roll',
 				]
+
+class SubjectModelForm(forms.ModelForm):
+	class Meta:
+		model = Subject
+		fields = [
+				'student',
+				'first_subject',
+				'second_subject',
+				'third_subject',
+				]
+
