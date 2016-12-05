@@ -1,0 +1,7 @@
+{% for query in queryset %}
+	<h1>{{ query.student }}</h1>
+	{% if query.first_subject %}{{ query.first_subject }}{% endif %}<br/>
+	{% if query.second_subject %}{{ query.second_subject }}{% endif %}<br/>
+	{% if query.third_subject %}{{ query.third_subject }}{% endif %}<br/>
+	<hr>
+{% endfor %}
