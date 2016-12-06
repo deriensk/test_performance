@@ -20,6 +20,9 @@ def student_info(request):
 
 def student_subject(request, id=None):
 	subject_add_form = SubjectAddForm()
+	if subject_add_form.is_valid():
+		instance = subject_add_form.save(commit=False)
+		instance.save()
 	subject_form = SubjectModelForm(request.POST or None)
 	if subject_form.is_valid():
 		instance = subject_form.save(commit=False)

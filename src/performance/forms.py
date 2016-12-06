@@ -10,9 +10,21 @@ class StudentModelForm(forms.ModelForm):
 				'roll',
 				]
 
+SUBJECT_CHOICES = (
+	('', ""),
+	('math', "Math"),
+	('science', "Science"),
+	('geography', "Geography"),
+	('spanish', "Spanish"),
+	('french', "French"),
+	('english', "English"),
+	('accounts', "Accounts"),
+	)
+
+
 class SubjectAddForm(forms.Form):
 	#subject = forms.CharField()
-	subject_name = forms.CharField()
+	subject_name = forms.ChoiceField(choices=SUBJECT_CHOICES, required=False)
 	full_mark = forms.IntegerField()
 	pass_mark = forms.IntegerField()
 	mark_obtained = forms.IntegerField()
