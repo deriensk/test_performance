@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Student, Subject
-from .forms import StudentModelForm, SubjectModelForm
+from .forms import StudentModelForm, SubjectModelForm, SubjectAddForm
 from django.http import HttpResponseRedirect
 # Create your views here.
 
@@ -19,6 +19,7 @@ def student_info(request):
 	return render(request, 'student.html', context)
 
 def student_subject(request, id=None):
+	subject_add_form = SubjectAddForm()
 	subject_form = SubjectModelForm(request.POST or None)
 	if subject_form.is_valid():
 		instance = subject_form.save(commit=False)
@@ -26,6 +27,7 @@ def student_subject(request, id=None):
 		return redirect('home')
 	context = {
 		'subject':subject_form,
+		'subject_add_form':subject_add_form,
 	}	
 
 	return render(request, 'subject.html', context)

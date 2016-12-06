@@ -23,10 +23,10 @@ class Student(models.Model):
 
 class Subject(models.Model):
 	student = models.ForeignKey(Student, on_delete=models.CASCADE, default=1)
-	subject_name = models.CharField(max_length=120, blank=True, null=True)
-	full_mark = models.IntegerField(default=100)
-	pass_mark = models.IntegerField(default=45)
-	mark_obtained = models.IntegerField(blank=True, null=True)
+	# subject_name = models.CharField(max_length=120, blank=True, null=True)
+	# full_mark = models.IntegerField(default=100)
+	# pass_mark = models.IntegerField(default=45)
+	# mark_obtained = models.IntegerField(blank=True, null=True)
 	
 
 	def __str__(self):

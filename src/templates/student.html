@@ -2,6 +2,7 @@
 
 <form method="POST" action="">{% csrf_token %}
 	{{ student.as_p }}
+	{{ student.subject_name}}
 	<input type="submit" name="submit">
 </form>
 

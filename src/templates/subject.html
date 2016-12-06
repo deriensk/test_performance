@@ -1,5 +1,15 @@
 <form method="POST" action="">{% csrf_token %}
 	{{ subject.as_p }}
+	<h3>First subject:</h3>
+	{{ subject_add_form.as_p }}<br>
+	<h3>Second subject:</h3>
+	{{ subject_add_form.as_p }}<br>
+	<h3>Third subject:</h3>
+	{{ subject_add_form.as_p }}<br>
+	<h3>Fourth subject:</h3>
+	{{ subject_add_form.as_p }}<br>
+	<h3>Fifth subject:</h3>
+	{{ subject_add_form.as_p }}<br>
 	<input type="submit" name="submit">
 	
 </form>
