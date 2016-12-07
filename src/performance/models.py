@@ -41,7 +41,7 @@ class Subject(models.Model):
 	
 
 	def __str__(self):
-		return str(self.student)
+		return '%s-%s' %(self.student, self.subject_name)
 
 
 class Attendance(models.Model):

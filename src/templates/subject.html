@@ -1,5 +1,27 @@
 <form method="POST" action="">{% csrf_token %}
-	{{ subject.name }}<br>
+	Select student: {{ subject.student }}<br><br>
+
+	Select Subject 1: <br>
+	
+	{{ subject.subject_name }}<br>
+	{{ subject.full_mark }}<br>
+	{{ subject.pass_mark }}<br>
+	{{ subject.mark_obtained }}<br>
+	<hr>
+	Select Subject 2: <br>
+    {{ subject.subject_name }}<br>
+	{{ subject.full_mark }}<br>
+	{{ subject.pass_mark }}<br>
+	{{ subject.mark_obtained }}<br>
+	<hr>
+
+	Select Subject 3: <br>
+	{{ subject.subject_name }}<br>
+	{{ subject.full_mark }}<br>
+	{{ subject.pass_mark }}<br>
+	{{ subject.mark_obtained }}<br>
+	<hr>
+	Select Subject 4:<br>
 	{{ subject.subject_name }}<br>
 	{{ subject.full_mark }}<br>
 	{{ subject.pass_mark }}<br>
