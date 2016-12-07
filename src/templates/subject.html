@@ -1,16 +1,18 @@
 <form method="POST" action="">{% csrf_token %}
-	{{ subject.as_p }}
-	<h3>First subject:</h3>
-	{{ subject_add_form.as_p }}<br>
-	<h3>Second subject:</h3>
-	{{ subject_add_form.as_p }}<br>
-	<h3>Third subject:</h3>
-	{{ subject_add_form.as_p }}<br>
-	<h3>Fourth subject:</h3>
-	{{ subject_add_form.as_p }}<br>
-	<h3>Fifth subject:</h3>
-	{{ subject_add_form.as_p }}<br>
+	{{ subject.name }}<br>
+	{{ subject.subject_name }}<br>
+	{{ subject.full_mark }}<br>
+	{{ subject.pass_mark }}<br>
+	{{ subject.mark_obtained }}<br>
+
 	<input type="submit" name="submit">
 	
 </form>
 
+
+
+<!-- subject_name = models.CharField(max_length=120, blank=True, null=True)
+	full_mark = models.IntegerField(default=100)
+	pass_mark = models.IntegerField(default=45)
+	mark_obtained = models.IntegerField(blank=True, null=True)
+	 -->
