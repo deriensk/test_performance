@@ -6,7 +6,6 @@ from django.forms import formset_factory, modelformset_factory, inlineformset_fa
 # Create your views here.
 
 def modelformset_view(request):
-
 	SubjectModelFormset = modelformset_factory(Subject,
 				fields=['student', 'subject_name', 'full_mark', 'pass_mark', 'mark_obtained'],
 				 extra=3)
@@ -21,7 +20,6 @@ def modelformset_view(request):
 	return render(request, 'modelformset_view.html', context)
 
 def formset_view(request):
-	
 	SubjectFormset = formset_factory(SubjectAddForm, extra=2)
 	formset = SubjectFormset(request.POST or None)
 	if formset.is_valid():
@@ -34,47 +32,28 @@ def formset_view(request):
 
 
 
-# def add_info(request):
-#     if request.method == "POST":
-#         stform = StudentModelForm(request.POST, instance=Student())
-#         subforms = [SubjectModelForm(request.POST, prefix=str(x), instance=Subject()) for x in range(0,3)]
-#         if stform.is_valid() and all([subf.is_valid() for subf in subforms]):
-#             new_stu = stform.save()
-#             for cf in subforms:
-#                 new_sub = cf.save(commit=False)
-#                 new_sub.student = new_stu
-#                 new_sub.save()
-#             return HttpResponseRedirect('/students/')
-#     else:
-#         stform = StudentModelForm(instance=Student())
-#         subforms = [SubjectModelForm(prefix=str(x), instance=Subject()) for x in range(0,3)]
-#     return render(request, 'student.html', {'poll_form': stform, 'choice_forms': subforms})
-
-
-
-
-
-
-
-
 
 def student_create(request):
 	student_form = StudentModelForm(request.POST or None)
 	if student_form.is_valid():
 		instance = student_form.save(commit=False)
 		instance.save()
-		#return redirect('modelformset_view')
 		return HttpResponseRedirect(instance.get_absolute_url())
-		#modelformset_view
+		
 	context = {
 		'student':student_form,
 	}   
-
 	return render(request, 'student.html', context)
 
 
 def subject_create(request, id=None):
 	instance = get_object_or_404(Student, id=id)
+	# SubjectModelFormset = modelformset_factory(Subject,
+	# 			fields=['subject_name', 'full_mark', 'pass_mark', 'mark_obtained'],
+	# 			extra=3)
+	# modelformset = SubjectModelFormset(request.POST or None)
+	# if modelformset.is_valid():
+	# 	modelformset.save()
 	subject_form = SubjectModelForm(request.POST or None)
 	if subject_form.is_valid():
 		sub_instance = subject_form.save(commit=False)
@@ -83,38 +62,28 @@ def subject_create(request, id=None):
 	context = {
 		'instance':instance,
 		'subject_form':subject_form,
+		#'modelformset':modelformset,
+
 		}
 	return render(request, 'subject.html', context)		
 
 def student_n_sub_detail(request, id=None):
 	instance_sub = get_object_or_404(Subject, id=id)
 	instance_stu = get_object_or_404(Student, id=id)
+	#test = get_object_or_404(modelformset_factory(Subject, fields='__all__'))
 	context = {
 		'instance_sub':instance_sub,
 		'instance_stu':instance_stu,
+		#'test':test,
 	}
 	return render(request, 'stu_n_sub_detail.html', context)
 
 
 
-
-
-def student_subject(request, id=None):
-	subject_form = SubjectModelForm(request.POST or None)
-	if subject_form.is_valid():
-		instance = subject_form.save(commit=False)
-		instance.save()
-		#return redirect('home')
+def home(request, id=None):
+	queryset_student = Student.objects.all()#.order_by('-id')
+	
 	context = {
-		'subject':subject_form,
-		#'subject_add_form':subject_add_form,
-		
-	}   
-
-	return render(request, 'subject.html', context)
-
-
-
-
-
-
+		'queryset_student':queryset_student,
+		}
+	return render(request, 'home.html', context)

@@ -1,12 +1,9 @@
-{% for query in queryset %}
-	 <a href="">{{ query.student }}</a><br>
-{% endfor %}	
-<!-- {% for query in sub %} -->
-	<!-- Subject: {% if query.subject_name %}{{ query.subject_name }}{% endif %}<br/>
-	Full mark: {% if query.full_mark %}{{ query.full_mark }}{% endif %}<br/>
-	Pass mark: {% if query.pass_mark %}{{ query.pass_mark }}{% endif %}<br/>
-	Mark obtained: {% if query.mark_obtained %}{{ query.mark_obtained }}{% endif %}<br/> -->
+<h2>Students record list. Click to view their details, or <br>
+<a href="/students/create/"><small>click here</small></a> to create new student record. </h2>
+
+</h2>
+{% for student in queryset_student %}
+	<h3>{{ student.id }}. <a href="{{ student.get_absolute_url_2 }}">{{ student.name }}</h3>
+	</a>
 	
-<!-- {% endfor %} -->
-
-
+{% endfor %}

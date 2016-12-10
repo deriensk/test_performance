@@ -59,10 +59,3 @@ class Subject(models.Model):
 class Attendance(models.Model):
 	pass
 		
-'''
-from django.forms import modelform_factory
-from performance.models import Subject
-SubjectForm = modelform_factory(Subject, fields=("subject_name", "subject_name", "full_mark", "pass_mark","mark_obtained"))		
-
-
-'''
