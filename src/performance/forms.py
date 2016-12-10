@@ -42,7 +42,7 @@ class SubjectModelForm(forms.ModelForm):
 	class Meta:
 		model = Subject
 		fields = [
-				'student',
+				#'student',
 				'subject_name',
 				'full_mark',
 				'pass_mark',

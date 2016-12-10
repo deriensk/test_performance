@@ -1,0 +1,13 @@
+
+
+<form method="POST" action="">{% csrf_token %}
+
+
+	{% include 'student.html' %}<br>
+	
+	Subject: {{ instance.subject_name }}<br>
+	Full mark: {{ instance.full_mark }}<br>
+	Pass mark: {{ instance.pass_mark }}<br>
+	Mark obtained: {{ instance.mark_obtained }}<br>
+	
+</form>

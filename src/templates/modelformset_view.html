@@ -5,12 +5,34 @@
 <form method="POST" action="">{% csrf_token %}
 	
 	{{ modelformset.management_form }}
-	{% for form in modelformset %}
+	
 	<div>
-	    {{  form.as_p }}
-	    <hr/>
+	    {{  modelformset.student }}
+	    {% for form in modelformset %}
+	    
+	    	{{ form.student }}<br>
+	    	{{ form.subject_name }}<br>
+	    	{{ form.full_mark }}<br>
+	    	{{ form.pass_mark }}<br>
+	    	{{ form.mark_obtained }}<br>
+	    	
+        {% endif %}    
+	    
 
 	</div>
 	{% endfor %}
 	<input type="submit" name="Submit">
 </form>
+
+<!-- <form method="post" action="">
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form.id }}
+        <ul>
+            <li>{{ form.name }}</li>
+            <li>{{ form.age }}</li>
+        </ul>
+    {% endfor %}
+['student', 'subject_name', 'full_mark', 'pass_mark', 'mark_obtained']
+
+</form> -->

@@ -1,12 +1,22 @@
+
+
+
 <h2>Please provide the following information about the student.</h2>
 
 <form method="POST" action="">{% csrf_token %}
 	<!-- {{ student.as_p }} -->
+
+
+	
+
+	ID: {{ student.id }}<br>
 	Name: {{ student.name }}<br>
 	Grade: {{ student.grade }}<br>
 	Roll: {{ student.roll }}<br>
-	
-	
+
+
+   
+		
 	<input type="submit" name="submit">
 </form>
 

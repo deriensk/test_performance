@@ -8,16 +8,24 @@ from django.core.urlresolvers import reverse
 #created_date = models.DateTimeField(default=timezone.now)
 
 # Create your models here.
+
+ROLL_CHOICE = [tuple([x,x]) for x in range(1,101)]
+GRADE_CHOICE = [tuple([x,x]) for x in range(1,11)]
+ 
 class Student(models.Model):
 	name = models.CharField(max_length=120)
-	grade = models.CharField(max_length=120)
-	roll = models.IntegerField(default=0)
+	grade = models.IntegerField(choices=GRADE_CHOICE)
+	roll = models.IntegerField(choices=ROLL_CHOICE)
 
 	def __str__(self):
 		return str(self.name)
 
 	def get_absolute_url(self):
-		return reverse("subject", kwargs={"id": self.id})	
+		return reverse("subject_create", kwargs={"id": self.id})	
+
+
+	def get_absolute_url_2(self):
+		return reverse("student_n_sub_detail", kwargs={"id": self.id})	
 
 	
 SUBJECT_CHOICES = (
@@ -41,9 +49,20 @@ class Subject(models.Model):
 	
 
 	def __str__(self):
-		return '%s-%s' %(self.student, self.subject_name)
+		return self.subject_name
+
+
+	def get_absolute_url_2(self):
+		return reverse("student_n_sub_detail", kwargs={"id": self.id})
 
 
 class Attendance(models.Model):
 	pass
 		
+'''
+from django.forms import modelform_factory
+from performance.models import Subject
+SubjectForm = modelform_factory(Subject, fields=("subject_name", "subject_name", "full_mark", "pass_mark","mark_obtained"))		
+
+
+'''

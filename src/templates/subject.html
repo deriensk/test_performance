@@ -1,40 +1,33 @@
+
+
 <form method="POST" action="">{% csrf_token %}
-	Select student: {{ subject.student }}<br><br>
 
-	Select Subject 1: <br>
 	
-	{{ subject.subject_name }}<br>
-	{{ subject.full_mark }}<br>
-	{{ subject.pass_mark }}<br>
-	{{ subject.mark_obtained }}<br>
-	<hr>
-	Select Subject 2: <br>
-    {{ subject.subject_name }}<br>
-	{{ subject.full_mark }}<br>
-	{{ subject.pass_mark }}<br>
-	{{ subject.mark_obtained }}<br>
-	<hr>
 
-	Select Subject 3: <br>
-	{{ subject.subject_name }}<br>
-	{{ subject.full_mark }}<br>
-	{{ subject.pass_mark }}<br>
-	{{ subject.mark_obtained }}<br>
-	<hr>
-	Select Subject 4:<br>
-	{{ subject.subject_name }}<br>
-	{{ subject.full_mark }}<br>
-	{{ subject.pass_mark }}<br>
-	{{ subject.mark_obtained }}<br>
 
+
+	Student name: {{ instance.name }}<br>
+	Grade: {{ instance.grade }}<br>
+	Roll no.:{{ instance.roll }}<br>
+
+		
+
+	
+
+	<h3>Please fill the subject form</h3>
+	{{ subject_form.as_p}}
+
+
+	
+
+
+
+
+    
+
+
+	
+	
 	<input type="submit" name="submit">
 	
 </form>
-
-
-
-<!-- subject_name = models.CharField(max_length=120, blank=True, null=True)
-	full_mark = models.IntegerField(default=100)
-	pass_mark = models.IntegerField(default=45)
-	mark_obtained = models.IntegerField(blank=True, null=True)
-	 -->
