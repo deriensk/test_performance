@@ -87,9 +87,11 @@ def subject_create(request, id=None):
 	return render(request, 'subject.html', context)		
 
 def student_n_sub_detail(request, id=None):
-	instance = get_object_or_404(Subject, id=id)
+	instance_sub = get_object_or_404(Subject, id=id)
+	instance_stu = get_object_or_404(Student, id=id)
 	context = {
-		'instance':instance,
+		'instance_sub':instance_sub,
+		'instance_stu':instance_stu,
 	}
 	return render(request, 'stu_n_sub_detail.html', context)
 

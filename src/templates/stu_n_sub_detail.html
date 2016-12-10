@@ -2,12 +2,22 @@
 
 <form method="POST" action="">{% csrf_token %}
 
+	<h3>Student info</h3>	
 
-	{% include 'student.html' %}<br>
+	Student name: {{ instance_stu.name }}<br>
+	Grade: {{ instance_stu.grade }}<br>
+	Roll no:{{ instance_stu.roll }}<br>	
+
 	
-	Subject: {{ instance.subject_name }}<br>
-	Full mark: {{ instance.full_mark }}<br>
-	Pass mark: {{ instance.pass_mark }}<br>
-	Mark obtained: {{ instance.mark_obtained }}<br>
+	<h3>Subject detail</h3>
 	
+
+	Subject: {{ instance_sub.subject_name }}<br>
+	Full mark: {{ instance_sub.full_mark }}<br>
+	Pass mark: {{ instance_sub.pass_mark }}<br>
+	Mark obtained: {{ instance_sub.mark_obtained }}<br>
+	
+
 </form>
+
+<a href="/students/create/">Create student</a>
